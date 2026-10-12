@@ -1,6 +1,7 @@
 # Self-assessment — IA#1
 
 Submitted by: 24127437 — [Trịnh Khánh Linh]
+Repository: https://github.com/klinh16/WAD02.git (Branch: IA1)
 
 Total I claim: 97 / 100
 

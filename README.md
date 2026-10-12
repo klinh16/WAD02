@@ -1,5 +1,8 @@
 # cart — session 2 starter
 
+- **Student**: 24127437 — Trịnh Khánh Linh
+- **Repository**: https://github.com/klinh16/WAD02.git (Branch: `IA1`)
+
 Run the test first and watch it fail:
 
 ```bash
