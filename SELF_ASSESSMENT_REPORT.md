@@ -1,10 +1,21 @@
-# Self-Assessment Report
+# Self-assessment — IA#1
 
-| #         | Criterion                      | Claimed       | Evidence                                                                                                                                                                                                                                 |
-| :-------- | :----------------------------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1         | cartTotal behaves as specified | 30 / 30       | The function implements all rules correctly. The return value is a number using `Math.round()`, free shipping works at the exact threshold, empty carts return `0`, and invalid prices/quantities throw `RangeError`. See `src/cart.js`. |
-| 2         | Tests                          | 20 / 20       | `npm test` passes successfully. `test/cart.test.js` covers the worked example (returns 467400), empty cart, the 500k free-shipping threshold, and 3 specific edge cases for `RangeError`.                                                |
-| 3         | The harness                    | 20 / 20       | `RULES.md` is complete with stack, commands, and three "never" rules. A CI pipeline is configured in `.github/workflows/ci.yml` which triggers on push, running both `npm run format:check` and `npm test`.                              |
-| 4         | The brief                      | 15 / 15       | `BRIEF.md` details the touched files, contract (logic), error cases, and explicitly specifies "no dependencies" as required.                                                                                                             |
-| 5         | AI-LOG.md                      | 15 / 15       | `AI-LOG.md` details the tool used (Gemini 3.1 Pro), the prompts provided, the generated outputs, and the decisions made to accept the code without manual edits.                                                                         |
-| **Total** |                                | **100 / 100** |                                                                                                                                                                                                                                          |
+Submitted by: 24127437 — [Họ và tên sinh viên]
+
+Total I claim: 100 / 100
+
+| Criterion | Max | I claim | Evidence                                                                                                                                                                                                        |
+| --------- | --- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Behaviour | 30  | 30      | All specification rules hold: `npm test` green; `Math.round()` used for whole đồng; empty cart returns 0; invalid price or non-integer qty throws `RangeError`. See `src/cart.js`.                              |
+| Tests     | 20  | 20      | 6 tests in `test/cart.test.js` covering worked example (returns 467400), empty cart, free-shipping threshold (500k), and all 3 RangeError cases. All pass.                                                      |
+| Harness   | 20  | 20      | `RULES.md` with stack, commands, and three "never" rules; `npm run format:check` gate; GitHub Actions CI running on push and green at https://github.com/klinh16/WAD02/actions/runs/38250328644 (branch `IA1`). |
+| Brief     | 15  | 15      | `BRIEF.md` specifies touched files, exact contract, edge/error cases, and "no dependencies" rule.                                                                                                               |
+| AI-LOG.md | 15  | 15      | `AI-LOG.md` formatted strictly per course template with entries for each task, detailing tool, prompt, kept, changed, rejected, and by-hand work.                                                               |
+
+## What I did not manage
+
+None. All 5 criteria and edge cases were successfully implemented, tested locally, and verified green on GitHub Actions CI.
+
+## What I would do differently
+
+Next time, configure Prettier and CI triggers for all branches right from the initial commit to avoid any formatting hiccups during the first gate check.
