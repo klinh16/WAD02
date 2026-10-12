@@ -2,8 +2,6 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { cartTotal } from '../src/cart.js'
 
-// This test fails until you implement cartTotal. That is the point:
-// run `npm test` first and see it red.
 test('the example from the slides', () => {
   const items = [
     { name: 'Áo thun', price: 180000, qty: 2 },
@@ -11,4 +9,40 @@ test('the example from the slides', () => {
   ]
   const options = { vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }
   assert.equal(cartTotal(items, options), 467400)
+})
+
+test('empty cart returns 0', () => {
+  const options = { vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }
+  assert.equal(cartTotal([], options), 0)
+})
+
+test('free shipping at the threshold', () => {
+  const items = [{ name: 'Sản phẩm', price: 500000, qty: 1 }]
+  const options = { vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }
+  // Subtotal = 500000, VAT = 40000, shipping = 0 => 540000
+  assert.equal(cartTotal(items, options), 540000)
+})
+
+test('throws RangeError for negative price', () => {
+  const items = [{ name: 'Lỗi', price: -100, qty: 1 }]
+  const options = { vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }
+  assert.throws(() => cartTotal(items, options), RangeError)
+})
+
+test('throws RangeError for non-integer quantity', () => {
+  const items = [{ name: 'Lỗi', price: 100000, qty: 1.5 }]
+  const options = { vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }
+  assert.throws(() => cartTotal(items, options), RangeError)
+})
+
+test('throws RangeError for zero or negative quantity', () => {
+  const options = { vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }
+  assert.throws(
+    () => cartTotal([{ name: 'Lỗi', price: 100000, qty: 0 }], options),
+    RangeError,
+  )
+  assert.throws(
+    () => cartTotal([{ name: 'Lỗi', price: 100000, qty: -2 }], options),
+    RangeError,
+  )
 })
