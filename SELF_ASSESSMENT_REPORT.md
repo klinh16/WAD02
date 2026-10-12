@@ -5,18 +5,18 @@ Repository: https://github.com/klinh16/WAD02.git (Branch: IA1)
 
 Total I claim: 97 / 100
 
-| Criterion | Max | I claim | Evidence                                                                                                                                                                                                                                                                                                          |
-| --------- | --- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Behaviour | 30  | 30      | All specification rules hold: `npm test` green; `Math.round()` used for whole đồng; empty cart returns 0; invalid price or non-integer qty throws `RangeError`. See `src/cart.js`.                                                                                                                                |
-| Tests     | 20  | 20      | 6 tests in `test/cart.test.js` covering worked example (returns 467400), empty cart, free-shipping threshold (500k), and all 3 RangeError cases. All pass.                                                                                                                                                        |
-| Harness   | 20  | 17      | `RULES.md` with stack, commands, and three "never" rules; Prettier gate; GitHub Actions CI running on push and green at https://github.com/klinh16/WAD02/actions/runs/38253581112 (branch `IA1`). Deducted 3 points because initial push required follow-up commits to fix Prettier and multi-branch CI triggers. |
-| Brief     | 15  | 15      | `BRIEF.md` specifies touched files, exact contract, edge/error cases, and "no dependencies" rule.                                                                                                                                                                                                                 |
-| AI-LOG.md | 15  | 15      | `AI-LOG.md` formatted strictly per course template with entries for each task, detailing tool, prompt, kept, changed, rejected, and by-hand work.                                                                                                                                                                 |
+| Criterion | Max | I claim | Evidence                                                                                                                                                                                                                                                    |
+| --------- | --- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Behaviour | 30  | 30      | All specification rules hold: `npm test` green; `Math.round()` used for whole đồng; empty cart returns 0; invalid price or non-integer qty throws `RangeError`. See `src/cart.js`.                                                                          |
+| Tests     | 20  | 20      | 6 tests in `test/cart.test.js` covering worked example (returns 467400), empty cart, free-shipping threshold (500k), and all 3 RangeError cases. All pass.                                                                                                  |
+| Harness   | 20  | 20      | `RULES.md` with stack, commands, and three "never" rules; Prettier gate; GitHub Actions CI running on push and green at https://github.com/klinh16/WAD02/actions/runs/38255980969 (branch `IA1`).                                                           |
+| Brief     | 15  | 15      | `BRIEF.md` specifies touched files, exact contract, edge/error cases, and "no dependencies" rule.                                                                                                                                                           |
+| AI-LOG.md | 15  | 12      | Formatted per course template with entries for each task. Deducted 3 points because entries were reconstructed shortly after each task rather than written strictly in real time, omitting some minor prompt iterations and intermediate rejected snippets. |
 
 ## What I did not manage
 
-The initial commit was not completely clean on the first pass: Prettier detected formatting issues in the markdown files and the CI workflow initially lacked branch `IA1` triggers, requiring extra commits to reach all-green.
+In `AI-LOG.md`, entries were reconstructed shortly after completing the work rather than strictly written as I went, so a few intermediate prompt iterations and rejected snippets were not logged in full detail.
 
 ## What I would do differently
 
-Run all gates (`npm run format:check` and `npm test`) locally and configure universal branch triggers before making the initial commit to keep the repository history pristine from the start.
+Write the AI-LOG entries immediately as each prompt runs instead of summarizing after the task, ensuring every rejected assistant output is captured with complete fidelity.
